@@ -1,0 +1,38 @@
+.container{
+    padding: 150px 50px 50px 50px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.imageContainer{
+    width: 120px;
+    height: 120px;
+    position: relative;
+}
+
+.right{
+    padding: 0px 20px;
+}
+
+.wrapper{
+    background-color: #2a2323;
+    color: white;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 300px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+.wrapper button{
+    background-color: white;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 150px;
+    margin: 0 auto;
+}
+

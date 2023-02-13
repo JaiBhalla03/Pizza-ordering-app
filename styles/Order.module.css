@@ -1,0 +1,80 @@
+.container{
+    padding: 150px 50px 50px 50px;
+    display: flex;
+    justify-content: space-around;
+
+}
+.right{
+    padding: 0px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wrapper{
+    background-color: #2a2323;
+    color: white;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 300px;
+    width: 250px;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.wrapper button{
+    background-color: white;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.left{
+    flex: 2;
+}
+
+.table{
+    width: 90%;
+    margin: 20px auto;
+}
+
+.tr{
+    font-size: 20px;
+}
+
+.tr td{
+    text-align: center;
+}
+
+.process{
+    margin-top: 50px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.processItem{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: black 1px 1px 5px;
+    width: 120px;
+}
+
+.processItem p{
+    text-align: center;
+}
+
+.icon{
+    margin: 5px auto;
+}
+
+.check{
+    margin: 5px auto;
+}

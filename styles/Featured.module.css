@@ -1,0 +1,37 @@
+.container{
+    background-color: #fe5857;
+    padding-top: 100px;
+    color: white;
+}
+
+.arrowContainer1{
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+.arrowContainer2{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+.wrapper{
+    width: 300vw; 
+    display: flex;
+}
+
+.imageContainer{
+    height: 100vw;
+    display: flex;
+}
+
+.imageMain{
+    display: flex;
+    width: 90vw;
+}
