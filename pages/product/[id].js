@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from '../../styles/Product.module.css'
 import img from '../../images/featured1.png'
 import Image from "next/image";
-import {FaPizzaSlice} from "react-icons/all";
+import {FaPizzaSlice} from "react-icons/fa";
 import {AiOutlineShoppingCart} from "react-icons/ai";
 
 const Product = () => {

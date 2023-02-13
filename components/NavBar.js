@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from '../styles/NavBar.module.css'
-import {IoCallOutline} from "react-icons/io5";
 import {AiOutlineShoppingCart} from "react-icons/ai";
 import Image from "next/image";
 import Logo from '../images/logo.png'
+import {BiPhoneCall} from "react-icons/bi";
 
 const NavBar = () => {
     return (
         <div className={styles.container}>
             <div className={styles.item}>
                 <div className={styles.callButton}>
-                    <IoCallOutline size={35}/>
+                    <BiPhoneCall size={35}/>
                 </div>
                 <div>
                     <div className={styles.texts}>

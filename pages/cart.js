@@ -69,9 +69,9 @@ const Cart = () => {
             <div className={styles.right}>
                 <div className={styles.wrapper}>
                     <h2>CART TOTAL</h2>
-                    <p><b>Subtotal: </b> $40.00</p>
-                    <p><b>Discount: </b> $00.00</p>
-                    <p><b>Total: </b> $40.00</p>
+                    <b>Subtotal: </b><p> $40.00</p>
+                    <b>Discount: </b><p> $00.00</p>
+                    <b>Total: </b><p> $40.00</p>
                     <button>Check Out!</button>
                 </div>
             </div>
