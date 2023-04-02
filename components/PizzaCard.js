@@ -1,20 +1,26 @@
 import React from 'react';
 import styles from '../styles/pizzalist.module.css'
 import Image from "next/image";
-import pizza from '../images/featured1.png'
+import pizza1 from '../public/img/pizza.png'
+import Link from 'next/link'
 
-const PizzaCard = () => {
+const PizzaCard = ({pizza}) => {
+    console.log(pizza.img)
     return (
         <div className={styles.cardMain}>
             <div className={styles.cardImage}>
-                <Image src={pizza} height={300} width={300}/>
+                <Link href={`/product/${pizza._id}`}>
+                    <Image className={styles.image} src={pizza.img} height={370} width={370}/>
+                </Link>
             </div>
             <div className={styles.cardInfo}>
-                <h2 className={styles.cardName}>Farm House</h2>
-                <p className={styles.cardDesc}>
-                    capsicum olives chilli tomato baby corn
-                </p>
-                <p className={styles.cardPrice}>$10.00</p>
+                <div className={styles.text}>
+                    <h2 className={styles.cardName}>{pizza.title}</h2>
+                    <p className={styles.cardDesc}>
+                        {pizza.desc}
+                    </p>
+                </div>
+                <p className={styles.cardPrice}>{pizza.prices[0]}</p>
             </div>
         </div>
     );

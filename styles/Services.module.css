@@ -1,0 +1,16 @@
+.main{
+    height: 85vh;
+    padding-top: 15vh;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.title{
+    font-size: 3rem;
+    color: #273137;
+}
+
+.services_list{
+    margin-top: 30px;
+    display: flex;
+}

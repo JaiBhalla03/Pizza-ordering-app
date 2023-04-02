@@ -1,0 +1,39 @@
+.card{
+    width: 350px;
+    height: 370px;
+    box-shadow: 5px 5px 10px #273137;
+    margin: 10px;
+    color: #273137;
+    border-radius: 20px;
+    padding: 40px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease-in-out;
+}
+
+.card:hover{
+    scale: 1.025;
+    transition: all 0.25s ease-in-out;
+}
+
+.image_container{
+    display: block;
+    width: 100px;
+}
+
+.image{
+
+}
+
+.text{
+
+}
+
+.heading{
+
+}
+
+.sub_heading{
+
+}

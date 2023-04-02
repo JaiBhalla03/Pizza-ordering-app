@@ -1,0 +1,54 @@
+.main{
+    padding-top: 15vh;
+    height: 100vh;
+    display: flex;
+}
+
+
+.text{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    color: #273137;
+}
+
+.main_text{
+    font-size: 3rem;
+    margin: 0px 0px 40px 0px;
+}
+
+.sub_text{
+    font-size: 1.2rem;
+}
+
+.order_button{
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    float: right;
+    height: 60px;
+    padding: 5px;
+    font-size: 1rem;
+    margin-top: 40px;
+    background-color: #93e3a9;
+    color: white;
+    border: none;
+    transition: all 0.25s ease-in-out;
+}
+
+.order_button:hover{
+    cursor: pointer;
+    scale: 1.05;
+    transition: all 0.25s ease-in-out;
+}
+
+.imageContainer{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}

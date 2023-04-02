@@ -1,0 +1,110 @@
+.container {
+    margin: 0 50px;
+    height: 90vh;
+    padding-top: 10vh;
+}
+
+.inner_container{
+    background-color: #273137;
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 30px;
+    color: white;
+    display: flex;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    color: #273137;
+    padding: 20px;
+}
+
+.hr{
+    text-align: center;
+    width: 80%;
+}
+.title{
+    font-size: 3rem;
+    color: #273137;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    color: #93e3a9;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.link {
+    color: #93e3a9;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input, .textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input:focus{
+    outline: none;
+}
+
+.textarea{
+    resize: none;
+    overflow: auto;
+}
+
+.textarea:focus{
+    outline: none;
+}
+
+.form{
+    width: 60%;
+}
+
+.submit_button{
+    width: 160px;
+    margin: 0 auto;
+    height: 50px;
+    padding: 5px;
+    font-size: 1rem;
+    background-color: #93e3a9;
+    color: white;
+    border: none;
+    transition: all 0.25s ease-in-out;
+}
+
+.button_container{
+    display: flex;
+    justify-content: center;
+}
+
+.submit_button:hover{
+    cursor: pointer;
+    scale: 1.05;
+    transition: all 0.25s ease-in-out;
+}

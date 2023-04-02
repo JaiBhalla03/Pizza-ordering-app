@@ -1,0 +1,10 @@
+.main{
+    height: 85vh;
+    padding: 15vh;
+    display: flex;
+}
+
+.title{
+    color: #273137;
+    font-size: 3rem;
+}

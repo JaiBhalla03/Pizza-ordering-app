@@ -1,12 +1,17 @@
 .container{
-    padding: 140px;
-
+    padding-top: 15vh;
+    width: 100%;
     display: flex;
-    color: #fe5857;
+    justify-content: space-around;
+    color: #93e3a9;
 }
 
 .containerLeft{
 
+}
+
+.image{
+    border-radius: 20px;
 }
 
 .containerRight{
@@ -43,7 +48,7 @@
 }
 
 .itemLabel{
-    background-color: #fe5857;
+    background-color: #93e3a9;
     color: white;
     padding: 2px;
     font-size: 13px;
@@ -73,17 +78,16 @@
     width: 150px;
     color: white;
     display: flex;
-    background-color: #fe5857;
-    border-radius: 30px;
+    background-color: #93e3a9;
     padding-top: 15px;
     padding-left: 10px;
     border: none;
+    transition: all 0.25s ease-in-out;
 }
 
 .pizzaAdd:hover{
-    color: #fe5857;
-    border: solid white 3px;
-    background-color: white;
+    scale: 1.05;
+    transition: all 0.25s ease-in-out;
     cursor: pointer;
 }
 

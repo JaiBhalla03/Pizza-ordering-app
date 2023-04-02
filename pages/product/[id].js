@@ -1,32 +1,50 @@
 import React, {useState} from 'react';
 import styles from '../../styles/Product.module.css'
-import img from '../../images/featured1.png'
 import Image from "next/image";
 import {FaPizzaSlice} from "react-icons/fa";
 import {AiOutlineShoppingCart} from "react-icons/ai";
+import axios from "axios";
+import {useDispatch} from "react-redux";
+import {addProduct} from "@/redux/cartSlice";
 
-const Product = () => {
+const Product = ({pizza}) => {
     const [price, setPrice] = useState(0);
-    const pizza = {
-        id: 1,
-        img: img,
-        name: "Farm house",
-        price: [10.0, 11.0, 12.0],
-        desc: "lorem ipsun dgs bbdfbd fsbdfb dfbfsb bdsb" +
-            " fdbsb psun dgs bbdfbd fsbdfb dfbfsb bdsb fdbsb" +
-            " psun dgs bbdfbd fsbdfb dfbfsb bdsb fdbsb psun dgs" +
-            " bbdfbd fsbdfb dfbfsb bdsb fdbsb psun dgs bbdfbd f" +
-            "sbdfb dfbfsb bdsb fdbsb psun dgs bbdfbd fsbdfb dfbfs" +
-            "b bdsb fdbsb"
+    const [size, setSize] = useState(pizza.prices[0]);
+    const [extras, setExtras] = useState([]);
+    const [quantity, setQuantity] = useState(1);
+    const changePrice = (number)=>{
+        setSize(size + number)
     }
+    const handleSize = (sizeIndex)=>{
+        const diff = pizza.prices[sizeIndex] - pizza.prices[price]
+        setPrice(sizeIndex);
+        changePrice(diff);
+    }
+    const handleChange = (e, option)=>{
+        const checked = e.target.checked;
+        if(checked){
+            changePrice(option.price)
+            setExtras((prev)=>[...prev, option])
+        }
+        else{
+            changePrice(-option.price)
+            setExtras(extras.filter((extra)=>extra._id !== option._id))
+        }
+    }
+    const dispatch = useDispatch()
+    console.log(size)
+    const handleClick = ()=>{
+        dispatch(addProduct({...pizza, extras, size, quantity}))
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.containerLeft}>
-                <Image src={pizza.img} width={500} height={500}/>
+                <Image className={styles.image} src={pizza.img} width={500} height={500}/>
             </div>
             <div className={styles.containerRight}>
-                <h1 className={styles.pizzaName}>{pizza.name}</h1>
-                <p className={styles.pizzaPrice}>$ {pizza.price[price]}</p>
+                <h1 className={styles.pizzaName}>{pizza.title}</h1>
+                <p className={styles.pizzaPrice}>$ {size}</p>
                 <p className={styles.pizzadesc}>
                     {pizza.desc}
                 </p>
@@ -34,19 +52,19 @@ const Product = () => {
                     Choose the size1
                 </h3>
                 <ul className={styles.pizzaList}>
-                    <li className={styles.pizzaListItem} onClick={()=>setPrice(0)}>
+                    <li className={styles.pizzaListItem} onClick={()=>handleSize(0)}>
                         <FaPizzaSlice size={25}/>
                         <div className={styles.itemLabel}>
                             Small
                         </div>
                     </li>
-                    <li className={styles.pizzaListItem} onClick={()=>setPrice(1)}>
+                    <li className={styles.pizzaListItem} onClick={()=>handleSize(1)}>
                         <FaPizzaSlice size={35}/>
                         <div className={styles.itemLabel}>
                             Medium
                         </div>
                     </li>
-                    <li className={styles.pizzaListItem} onClick={()=>setPrice(2)}>
+                    <li className={styles.pizzaListItem} onClick={()=>handleSize(2)}>
                         <FaPizzaSlice size={45}/>
                         <div className={styles.itemLabel}>
                             Large
@@ -57,23 +75,39 @@ const Product = () => {
                     Choose the additional ingredients
                 </h3>
                 <ul className={styles.pizzaListExtra}>
-                    <input id={'double'} type={'checkbox'}/>
-                    <label for={'double'}>Double Ingredient</label>
-                    <input id={'extra'} type={'checkbox'}/>
-                    <label htmlFor={'extra'}>Extra Cheese</label>
-                    <input id={'spicy'} type={'checkbox'}/>
-                    <label htmlFor={'spicy'}>Spicy Sauce</label>
-                    <input id={'garlic'} type={'checkbox'}/>
-                    <label htmlFor={'garlic'}>Garlic Sauce</label>
+                    {
+                        pizza.extraOptions.map((option)=>(
+                            <>
+                                <input
+                                    id={option.text}
+                                    name={option.text}
+                                    type={'checkbox'}
+                                    onChange={(e)=>handleChange(e, option)}
+                                />
+                                <label htmlFor={'double'}>{option.text}</label>
+                            </>
+                        ))
+                    }
                 </ul>
                 <div style={{'display':'flex', 'justifyContent':'space-between', 'marginTop': '10px'}}>
-                    <input type={'number'} defaultValue={1} className={styles.quantity}/>
-                    <button className={styles.pizzaAdd}><div>Add To Card</div> <AiOutlineShoppingCart size={30}/></button>
+                    <input onChange={(e)=>setQuantity(e.target.value)} type={'number'} defaultValue={1} className={styles.quantity}/>
+                    <button
+                        onClick={handleClick}
+                        className={styles.pizzaAdd}><div>Add To Card</div> <AiOutlineShoppingCart size={30}/></button>
                 </div>
-
             </div>
         </div>
     );
 };
 
+export const getServerSideProps = async({params})=>{
+    const res = await axios.get(`http://localhost:3000/api/products/${params.id}`);
+    return {
+        props: {
+            pizza: res.data,
+        }
+    }
+}
+
     export default Product;
+

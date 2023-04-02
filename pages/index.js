@@ -2,13 +2,20 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
+import axios from 'axios';
 import Link from "next/link";
-import Featured from "@/components/Featured";
 import PizzaList from "@/components/PizzaList";
+import {useEffect, useState} from "react";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import ContactUs from "@/components/ContactUs";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+
+
+export default function Home({pizzaList}) {
+    console.log(pizzaList)
   return (
     <>
       <Head>
@@ -18,9 +25,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-          <Featured/>
-          <PizzaList/>
+          <Hero/>
+          <Services/>
+          <PizzaList pizzaList={pizzaList}/>
+          <ContactUs/>
       </main>
     </>
   )
+}
+
+
+//fetching the data using serverside props
+
+export const getServerSideProps = async()=>{
+    const res = await axios.get("http://localhost:3000/api/products");
+    return {
+        props: {
+            pizzaList: res.data,
+        }
+    }
 }

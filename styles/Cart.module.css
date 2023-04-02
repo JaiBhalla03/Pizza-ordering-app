@@ -2,21 +2,15 @@
     padding: 150px 50px 50px 50px;
     display: flex;
     justify-content: space-around;
-
 }
 
-.imageContainer{
-    width: 120px;
-    height: 120px;
-    position: relative;
-}
 
 .right{
     padding: 0px 20px;
 }
 
 .wrapper{
-    background-color: #2a2323;
+    background-color: #273137;
     color: white;
     padding: 0px 20px;
     display: flex;
@@ -27,7 +21,7 @@
     border-radius: 20px;
 }
 
-.wrapper button{
+.buu{
     background-color: white;
     height: 30px;
     font-size: 20px;
@@ -36,3 +30,37 @@
     margin: 0 auto;
 }
 
+.left{
+    width: 70%;
+}
+
+.table{
+    width: 100%;
+}
+
+.name{
+    text-align: center;
+}
+
+.tr{
+    border: solid #93e3a9 1px;
+}
+
+.table_heading{
+    background-color: #93e3a9;
+    color: white;
+    margin: 5px;
+}
+
+.table_data{
+    border-color: #93e3a9;
+    border-style: solid;
+    border-width: 2px;
+    text-align: center;
+
+}
+
+
+.image{
+    border-radius: 20px;
+}

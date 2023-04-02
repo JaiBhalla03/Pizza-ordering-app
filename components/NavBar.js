@@ -2,55 +2,49 @@ import React from 'react';
 import styles from '../styles/NavBar.module.css'
 import {AiOutlineShoppingCart} from "react-icons/ai";
 import Image from "next/image";
-import Logo from '../images/logo.png'
+import Logo from '../img/logo.png'
 import {BiPhoneCall} from "react-icons/bi";
+import {useSelector} from "react-redux";
+import Link from "next/link";
 
 const NavBar = () => {
+    const quantity = useSelector((state)=>state.cart.quantity)
     return (
         <div className={styles.container}>
-            <div className={styles.item}>
-                <div className={styles.callButton}>
-                    <BiPhoneCall size={35}/>
-                </div>
-                <div>
-                    <div className={styles.texts}>
-                        ORDER NOW!
-                    </div>
-                    <div className={styles.text}>
-                        941 548 347
-                    </div>
-                </div>
+            <div className={styles.image_container}>
+                <Image src={Logo} height={60} width={170} alt={'logo'} className={styles.logo}/>
             </div>
-            <div className={styles.item}>
-                <ul className={styles.list}>
-                    <li className={styles.listItem}>
-                        Homepage
-                    </li>
-                    <li className={styles.listItem}>
-                        Products
-                    </li>
-                    <li className={styles.listItem}>
-                        Menu
-                    </li>
-                    <Image src={Logo} height={60} width={170} alt={'logo'} className={styles.logo}/>
-                    <li className={styles.listItem}>
-                        Events
-                    </li>
-                    <li className={styles.listItem}>
-                        Blog
-                    </li>
-                    <li className={styles.listItem}>
-                        Contacts
-                    </li>
-                </ul>
-            </div>
-            <div className={styles.item} id={styles.cartButton}>
-                    <div>
-                        <AiOutlineShoppingCart size={45}/>
+
+            <div className={styles.navbar}>
+                <div className={styles.item}>
+                    <ul className={styles.list}>
+                        <Link href={'/'} className={styles.listItem}>
+                            Homepage
+                        </Link>
+                        <Link href={'/about'} className={styles.listItem}>
+                            About Us
+                        </Link>
+                        <li className={styles.listItem}>
+                            <a  className={styles.links} href={'#services'}>Services</a>
+                        </li>
+                        <li className={styles.listItem}>
+                            <a  className={styles.links} href={'#menu'}>Menu</a>
+                        </li>
+                        <li className={styles.listItem}>
+                            <a  className={styles.links} href={'#contact'}>Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <Link href={"/cart"} style={{'color': 'white'}} className={styles.cart_container} passHref>
+                    <div className={styles.item} id={styles.cartButton}>
+                        <div>
+                            <AiOutlineShoppingCart size={45}/>
+                        </div>
+                        <div className={styles.counter}>
+                            {quantity}
+                        </div>
                     </div>
-                    <div className={styles.counter}>
-                        2
-                    </div>
+                </Link>
             </div>
         </div>
     );
