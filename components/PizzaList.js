@@ -9,7 +9,7 @@ const PizzaList = ({pizzaList}) => {
             <h1 className={styles.title}>Menu</h1>
             <div className={styles.wrapper}>
                 {
-                    pizzaList.map((pizza) => (
+                    pizzaList?.map((pizza) => (
                         <PizzaCard key={pizza._id} pizza={pizza}/>
                     ))
                 }
