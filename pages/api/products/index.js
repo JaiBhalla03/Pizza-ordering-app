@@ -1,6 +1,6 @@
 import dbConnect from "@/util/mongo";
 import Product from "@/models/Product";
-import {tryParsePattern} from "next/dist/build/webpack/plugins/jsconfig-paths-plugin";
+
 
 export default async function handler(req, res) {
     const {method} = req;
