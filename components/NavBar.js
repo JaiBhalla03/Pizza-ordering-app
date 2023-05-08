@@ -25,13 +25,13 @@ const NavBar = () => {
                             About Us
                         </Link>
                         <li className={styles.listItem}>
-                            <a  className={styles.links} href={'#services'}>Services</a>
+                            <Link  className={styles.links} href={'/#services'}>Services</Link>
                         </li>
                         <li className={styles.listItem}>
-                            <a  className={styles.links} href={'#menu'}>Menu</a>
+                            <Link  className={styles.links} href={'/#menu'}>Menu</Link>
                         </li>
                         <li className={styles.listItem}>
-                            <a  className={styles.links} href={'#contact'}>Contact Us</a>
+                            <Link  className={styles.links} href={'/#contact'}>Contact Us</Link>
                         </li>
                     </ul>
                 </div>
